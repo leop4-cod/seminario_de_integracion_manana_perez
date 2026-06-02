@@ -53,3 +53,40 @@ print(numeros_desordenados)
 ordenada=sorted(numeros_desordenados)
 print(numeros_desordenados)
 print(ordenada)
+
+# lista-funcional.py
+
+productos = [
+    {"nombre": "Laptop",    "precio": 999, "stock": 5,  "cat": "tech"},
+    {"nombre": "Camiseta",  "precio": 25,  "stock": 20, "cat": "ropa"},
+    {"nombre": "Monitor",   "precio": 450, "stock": 3,  "cat": "tech"},
+    {"nombre": "Pantalón",  "precio": 60,  "stock": 8,  "cat": "ropa"},
+    {"nombre": "Teclado",   "precio": 79,  "stock": 0,  "cat": "tech"},
+]
+
+# map — transforma cada elemento
+precios     = list(map(lambda p: p["precio"], productos))
+nombres     = list(map(lambda p: p["nombre"].upper(), productos))
+print(precios)   # [999, 25, 450, 60, 79]
+
+# filter — filtra elementos
+con_stock   = list(filter(lambda p: p["stock"] > 0, productos))
+tech        = list(filter(lambda p: p["cat"] == "tech", productos))
+print([p["nombre"] for p in con_stock])
+
+# sorted con key
+por_precio  = sorted(productos, key=lambda p: p["precio"])
+mas_caro    = sorted(productos, key=lambda p: p["precio"], reverse=True)[0]
+print(f"Más caro: {mas_caro['nombre']} ({mas_caro['precio']}€)")
+
+# sum, min, max con key
+total       = sum(p["precio"] * p["stock"] for p in productos)
+mas_barato  = min(productos, key=lambda p: p["precio"])
+print(f"Total inventario: {total}€")
+print(f"Más barato: {mas_barato['nombre']}")
+
+# any y all
+hay_sin_stock = any(p["stock"] == 0 for p in productos)
+todos_tech    = all(p["cat"] == "tech" for p in productos)
+print(f"¿Hay sin stock? {hay_sin_stock}")    # True
+print(f"¿Todos son tech? {todos_tech}")     # False
