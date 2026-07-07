@@ -1,5 +1,16 @@
 // src/App.tsx
 
+import DigitalCounter from "./01useState/DigitalCounter"
+import SafeCounter from "./01useState/SafeCounter"
+import TaskManager from "./01useState/TaskManager"
+import UserProfileForm from "./01useState/UserProfileForm"
+import DocumentTitle from "./02useEffect/DocumentTitle"
+import FetchUser from "./02useEffect/FetchUser"
+import FetchUsers from "./02useEffect/FetchUsers"
+import AutoFocusForm from "./03useRef/AutoFocusForm"
+import InlineEditor from "./03useRef/InlineEditor"
+import FruitList from "./components/FruitList"
+import ProductCard from "./components/ProductCard"
 import WelcomeBanner from "./components/WelcomeBanner"
 
 
@@ -20,12 +31,12 @@ import WelcomeBanner from "./components/WelcomeBanner"
 // │  12  ProductCatalogList  — lista con renderizado condicional de items   │
 // │  13  UserProfileCard     — ejercicio: props complejas + rol             │
 // └──────────────────────────────────────────────────────────────────────────┘
-const PASO = 1
+const PASO = 41
 
 const fruits = [
-  { name: 'Manzana', emoji: '🍎', calories: 52 },
-  { name: 'Banana',  emoji: '🍌', calories: 89 },
-  { name: 'Naranja', emoji: '🍊', calories: 47 },
+  { name: 'Manzana', emoji: '🍎', calories: 52, peso: 2 },
+  { name: 'Banana',  emoji: '🍌', calories: 89, peso: 3 },
+  { name: 'Naranja', emoji: '🍊', calories: 47, peso: 4 },
 ]
 
 const catalog = [
@@ -48,7 +59,8 @@ export default function App() {
       </div>
     ) :
     PASO ===  5 ? <ConditionalGreeting isLoggedIn={true} userName="Ana" timeOfDay="afternoon" /> :
-    PASO ===  6 ? <FruitList fruits={fruits} title="Frutas favoritas" /> :
+    */
+    PASO ===  6 ? <FruitList fruits={fruits} title="Frutas favoritas" /> :/*
     PASO ===  7 ? (
       <div style={{ display: 'flex', gap: 24, alignItems: 'flex-end' }}>
         <PriceTag amount={99.99} currency="USD" />
@@ -82,7 +94,19 @@ export default function App() {
         ]}
       />
     ) :
-    PASO === 11 ? <ProductCard title="Teclado inalámbrico" description="Bluetooth 5.0, retroiluminado" highlighted /> :
+     */
+    PASO === 11 ? <>
+                    <WelcomeBanner />
+                    <br/>
+                    <ProductCard 
+                    title="Teclado inalámbrico" 
+                    description="Bluetooth 5.0, retroiluminado" 
+                    highlighted /> 
+                    <ProductCard 
+                    title="Laptop" 
+                    description="i9 ultra 2tb ssd 32gb RAM" 
+                    /> 
+                  </>:/*
     PASO === 12 ? <ProductCatalogList products={catalog} title="Productos disponibles" /> :
     PASO === 13 ? (
       <UserProfileCard
@@ -94,6 +118,23 @@ export default function App() {
         bio="Desarrolladora fullstack con 5 años de experiencia."
       />
     ) :*/
+    // Hook: useState
+    PASO === 20 ? <DigitalCounter
+                      initialValue={10}
+                      step={5}
+                      label="Contar Servidores"
+                      /> :
+    PASO === 21 ? <SafeCounter/> :
+    PASO === 22 ? <UserProfileForm/> :
+    PASO === 23 ? <TaskManager /> :
+    // Hook: useEffect
+    PASO === 30 ? <DocumentTitle /> :
+    PASO === 31 ? <FetchUser /> :
+    PASO === 32 ? <FetchUsers /> :
+    // Hook: use
+    PASO === 40 ? <AutoFocusForm /> :
+    PASO === 41 ? <InlineEditor /> :
+
     <p style={{ color: '#e00' }}>Paso {PASO}: crea el componente primero</p>
 
   return (
