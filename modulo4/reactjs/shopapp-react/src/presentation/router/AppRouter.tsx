@@ -5,6 +5,7 @@ import { useAuthStore } from '@/presentation/store/auth.store'
 import ProtectedRoute from './ProtectedRoute'
 import AppShell from '@/presentation/components/AppShell'
 import PlaceholderPage from '../pages/PlaceholderPage'
+import CatalogPage from '../pages/catalog/CatalogPage'
 
 // ─── Lazy imports ─────────────────────────────────────────────────────────────
 
@@ -48,8 +49,8 @@ export default function AppRouter() {
           {/* ── Rutas con AppShell ── */}
           <Route element={<AppShell />}>
             {/* Públicas — placeholder hasta el módulo 4/5 */}
-            <Route path="/" element={<PlaceholderPage title="Catálogo — Módulo 4" />} />
-            <Route path="/catalog" element={<PlaceholderPage title="Catálogo — Módulo 4" />} />
+            <Route path="/" element={<CatalogPage />} />
+            <Route path="/catalog" element={<CatalogPage />} />
             <Route path="/products/:id" element={<PlaceholderPage title="Detalle de producto — Módulo 5" />} />
 
             {/* Requieren autenticación — placeholder hasta los módulos 6, 7 y 8 */}
