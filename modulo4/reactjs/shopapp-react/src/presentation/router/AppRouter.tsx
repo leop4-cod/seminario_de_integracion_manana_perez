@@ -11,6 +11,7 @@ import CartPage from '../pages/cart/CartPage'
 import CheckoutPage from '../pages/orders/CheckoutPage'
 import OrdersPage from '../pages/orders/OrdersPage'
 import OrderDetailPage from '../pages/orders/OrderDetailPage'
+import ProfilePage from '../pages/profile/ProfilePage'
 
 // ─── Lazy imports ─────────────────────────────────────────────────────────────
 
@@ -96,7 +97,7 @@ export default function AppRouter() {
               path="/profile"
               element={
                 <ProtectedRoute>
-                  <PlaceholderPage title="Perfil — Módulo 8" />
+                  <ProfilePage />
                 </ProtectedRoute>
               }
             />
