@@ -13,6 +13,7 @@ import OrdersPage from '../pages/orders/OrdersPage'
 import OrderDetailPage from '../pages/orders/OrderDetailPage'
 import ProfilePage from '../pages/profile/ProfilePage'
 import AdminDashboardPage from '../pages/admin/AdminDashboardPage'
+import AdminCategoriesPage from '../pages/admin/AdminCategoriesPage'
 
 // ─── Lazy imports ─────────────────────────────────────────────────────────────
 
@@ -116,7 +117,7 @@ export default function AppRouter() {
               path="/admin/categories"
               element={
                 <ProtectedRoute requireStaff>
-                  <PlaceholderPage title="Admin Categorías — Módulo 10" />
+                  <AdminCategoriesPage />
                 </ProtectedRoute>
               }
             />
