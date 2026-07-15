@@ -4,6 +4,8 @@ import type { Product } from '@/domain/entities/product.entity'
 import type { PaginatedResult } from '@/domain/entities/paginated-result.entity'
 import type { ProductFilters } from '@/domain/entities/product-filters.entity'
 import type { ProductStats } from '@/domain/entities/product-stats.entity'
+import type { UpdateProductDto } from '../dtos/update-product.dto'
+import type { CreateProductDto } from '../dtos/create-product.dto'
 
 export class ProductUseCase {
   productRepository: ProductRepository
@@ -21,6 +23,22 @@ export class ProductUseCase {
   }
 
   getStats(): Promise<ProductStats> {
-  return this.productRepository.getStats()
+    return this.productRepository.getStats()
+  }
+
+  createProduct(dto: CreateProductDto): Promise<Product> {
+  return this.productRepository.createProduct(dto)
+}
+
+updateProduct(id: number, dto: UpdateProductDto): Promise<Product> {
+  return this.productRepository.updateProduct(id, dto)
+}
+
+deleteProduct(id: number): Promise<void> {
+  return this.productRepository.deleteProduct(id)
+}
+
+restockProduct(id: number, quantity: number): Promise<{ id: number; name: string; new_stock: number }> {
+  return this.productRepository.restockProduct(id, quantity)
 }
 }
