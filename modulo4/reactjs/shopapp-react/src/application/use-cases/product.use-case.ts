@@ -27,18 +27,21 @@ export class ProductUseCase {
   }
 
   createProduct(dto: CreateProductDto): Promise<Product> {
-  return this.productRepository.createProduct(dto)
-}
+    return this.productRepository.createProduct(dto)
+  }
 
-updateProduct(id: number, dto: UpdateProductDto): Promise<Product> {
-  return this.productRepository.updateProduct(id, dto)
-}
+  updateProduct(id: number, dto: UpdateProductDto): Promise<Product> {
+    return this.productRepository.updateProduct(id, dto)
+  }
 
-deleteProduct(id: number): Promise<void> {
-  return this.productRepository.deleteProduct(id)
-}
+  deleteProduct(id: number): Promise<void> {
+    return this.productRepository.deleteProduct(id)
+  }
 
-restockProduct(id: number, quantity: number): Promise<{ id: number; name: string; new_stock: number }> {
-  return this.productRepository.restockProduct(id, quantity)
-}
+  restockProduct(id: number, quantity: number): Promise<{ id: number; name: string; new_stock: number }> {
+    return this.productRepository.restockProduct(id, quantity)
+  }
+  uploadImage(id: number, file: File): Promise<Product> {
+    return this.productRepository.uploadImage(id, file)
+  }
 }

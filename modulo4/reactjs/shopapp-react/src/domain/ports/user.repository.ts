@@ -15,4 +15,5 @@ export interface UserRepository {
   updateUserStaffStatus(id: number, isStaff: boolean): Promise<AdminUser>
   toggleUserActive(id: number): Promise<{ is_active: boolean }>
   getStats(): Promise<UserStats>
+  uploadAvatar(file: File): Promise<UserProfile>
 }

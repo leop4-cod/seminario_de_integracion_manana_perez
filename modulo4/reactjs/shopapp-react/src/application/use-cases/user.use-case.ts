@@ -23,7 +23,7 @@ export class UserUseCase {
     getStats(): Promise<UserStats> {
         return this.userRepository.getStats()
     }
-    
+
     getUsers(page = 1, search?: string): Promise<PaginatedResult<AdminUser>> {
         return this.userRepository.getUsers(page, search)
     }
@@ -34,6 +34,10 @@ export class UserUseCase {
 
     toggleUserActive(id: number): Promise<{ is_active: boolean }> {
         return this.userRepository.toggleUserActive(id)
+    }
+
+    uploadAvatar(file: File): Promise<UserProfile> {
+        return this.userRepository.uploadAvatar(file)
     }
 
 }

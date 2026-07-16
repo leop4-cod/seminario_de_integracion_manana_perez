@@ -22,6 +22,7 @@ export function CategoryDialog({ open, onOpenChange, category }: CategoryDialogP
   const [isLoading, setIsLoading] = useState(false)
   const createCategory = useAdminStore((s) => s.createCategory)
   const updateCategory = useAdminStore((s) => s.updateCategory)
+  const uploadProductImage = useAdminStore((s) => s.uploadProductImage)
 
   const isEditing = Boolean(category)
   const title = isEditing ? 'Editar categoría' : 'Nueva categoría'
